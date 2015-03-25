@@ -189,10 +189,20 @@ addMarkers = function(
   options = markerOptions(),
   data = getMapData(map)
 ) {
-  options$icon = icon
+  options$icon = L.icon(icon)
   pts = derivePoints(data, lng, lat, missing(lng), missing(lat), "addMarkers")
   appendMapData(map, data, 'marker', pts$lat, pts$lng, layerId, options, popup) %>%
     expandLimits(pts$lat, pts$lng)
+}
+
+L.icon = function(options) {
+  if (!is.list(options)) return(options)
+  for (i in c('iconUrl', 'iconRetinaUrl', 'shadowUrl', 'shadowRetinaUrl')) {
+    Url = options[[i]]
+    if (!is.character(Url) || !file.exists(Url)) next
+    options[[i]] = knitr::image_uri(Url)
+  }
+  options
 }
 
 #' @param clickable whether the element emits mouse events
