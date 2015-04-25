@@ -97,7 +97,8 @@ getMapProxy <- function(mapId, session = shiny::getDefaultReactiveDomain(),
       x = structure(
         list(),
         leafletData = data
-      )
+      ),
+      dependencies = NULL
     ),
     class = "leaflet_remote"
   )
@@ -111,6 +112,7 @@ invokeRemote = function(map, method, args = list()) {
     id = map$id,
     calls = list(
       list(
+        dependencies = map$dependencies,
         method = method,
         args = args
       )
