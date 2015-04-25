@@ -9,7 +9,8 @@ Authors@R: as.person(c(
     "Hadley Wickham [ctb]",
     "jQuery contributors [ctb, cph] (the jQuery library in htmlwidgets/lib)",
     "Leaflet contributors [ctb, cph] (the Leaflet library in htmlwidgets/lib)",
-    "RStudio [cph]"
+    "RStudio [cph]",
+    "Leaflet Providers contributors [ctb, cph] (the Leaflet Providers plugin in htmlwidgets/plugins)"
     ))
 Maintainer: Joe Cheng <joe@rstudio.com>
 Description: Leaflet is "an open-source JavaScript library for mobile-friendly
